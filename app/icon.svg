@@ -1,0 +1,23 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Chat bubble -->
+  <path
+    d="M24 4C12.954 4 4 11.611 4 21c0 5.084 2.904 9.628 7.432 12.656L8 44l12.344-3.432C21.542 40.856 22.756 41 24 41c11.046 0 20-7.611 20-17S35.046 4 24 4z"
+    fill="#000000"
+    stroke="#000000"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Letter 'w' -->
+  <text
+    x="24"
+    y="28"
+    font-family="monospace"
+    font-size="20"
+    font-weight="bold"
+    fill="#FFFFFF"
+    text-anchor="middle"
+  >
+    w
+  </text>
+</svg>
