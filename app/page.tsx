@@ -35,7 +35,7 @@ export default function WaitlistPage() {
 
       {/* Live pulse indicator - top right */}
       <div className="fixed top-6 right-6 z-50 flex items-center gap-2 px-4 py-2 bg-black/95 backdrop-blur-sm rounded-full border border-white/10 shadow-2xl">
-        <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse-slow shadow-[0_0_8px_rgba(37,99,235,0.6)]" />
+        <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse-slow shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
         <span className="text-xs font-mono text-white uppercase tracking-widest">
           Live
         </span>
@@ -68,7 +68,7 @@ export default function WaitlistPage() {
               </h2>
 
               {/* Subheadline */}
-              <div className="border-l-4 border-blue-600 pl-6 max-w-md">
+              <div className="border-l-4 border-blue-500 pl-6 max-w-md">
                 <p className="font-mono text-sm uppercase tracking-wider text-neutral-600 mb-3">
                   The Truth Layer
                 </p>
@@ -89,8 +89,8 @@ export default function WaitlistPage() {
                   {!showSuccess ? (
                     <>
                       <div className="mb-8">
-                        <div className="mb-4 inline-block border-2 border-blue-600 px-3 py-1">
-                          <span className="font-mono text-xs uppercase tracking-widest text-blue-600">
+                        <div className="mb-4 inline-block border-2 border-blue-500 px-3 py-1">
+                          <span className="font-mono text-xs uppercase tracking-widest text-blue-500">
                             Early Access
                           </span>
                         </div>
@@ -104,30 +104,64 @@ export default function WaitlistPage() {
                       </div>
 
                       <form onSubmit={handleSubmit} className="space-y-6">
-                        <div className="space-y-4">
+                        <div className="flex items-center gap-2 bg-neutral-100 border border-neutral-300 rounded-full px-4 py-2 shadow-sm hover:border-neutral-400 focus-within:border-blue-400 focus-within:ring-2 focus-within:ring-blue-400/20 transition-all">
                           <Input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="your@email.com"
                             required
-                            className="h-14 border-2 border-black bg-neutral-50 px-6 text-lg font-mono focus:border-black focus:ring-4 focus:ring-black/10 transition-all"
+                            className="h-9 flex-1 border-0 bg-transparent px-2 text-base font-normal focus:ring-0 focus:outline-none focus-visible:ring-0 placeholder:text-neutral-400 rounded-full shadow-none"
                             aria-label="Email address"
                           />
                           <Button
                             type="submit"
                             disabled={isSubmitting}
-                            className="h-14 w-full bg-black text-lg font-mono uppercase tracking-wider text-white hover:bg-neutral-800 disabled:bg-neutral-400 transition-colors shadow-[4px_4px_0px_0px_rgba(37,99,235,1)] hover:shadow-[6px_6px_0px_0px_rgba(37,99,235,1)]"
+                            className="h-8 w-8 min-w-8 rounded-full bg-blue-500 p-0 flex items-center justify-center text-white hover:bg-blue-600 disabled:bg-neutral-300 disabled:text-neutral-400 transition-all shadow-none hover:scale-105 active:scale-95"
+                            aria-label="Join waitlist"
                           >
-                            {isSubmitting
-                              ? "Joining..."
-                              : "Join the Waitlist →"}
+                            {isSubmitting ? (
+                              <svg
+                                className="animate-spin h-4 w-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                              >
+                                <circle
+                                  className="opacity-25"
+                                  cx="12"
+                                  cy="12"
+                                  r="10"
+                                  stroke="currentColor"
+                                  strokeWidth="4"
+                                ></circle>
+                                <path
+                                  className="opacity-75"
+                                  fill="currentColor"
+                                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                ></path>
+                              </svg>
+                            ) : (
+                              <svg
+                                className="h-4 w-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                strokeWidth="2.5"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M12 19V5m0 0l-7 7m7-7l7 7"
+                                />
+                              </svg>
+                            )}
                           </Button>
                         </div>
                       </form>
 
                       {showError && (
-                        <div className="mt-6 border-2 border-blue-600 bg-red-50 p-4 animate-fade-in">
+                        <div className="mt-6 border-2 border-blue-500 bg-red-50 p-4 animate-fade-in">
                           <p className="font-mono text-sm text-red-700">
                             Error: Please enter a valid email address
                           </p>
@@ -152,45 +186,6 @@ export default function WaitlistPage() {
             </div>
           </div>
         </header>
-
-        {/* Pull Quote - Editorial Style */}
-        <section className="mx-auto mb-32 max-w-4xl mt-32">
-          <div className="border-y-2 border-black py-12">
-            <blockquote className="text-center">
-              <p className="font-display text-2xl font-medium italic leading-relaxed text-neutral-900 sm:text-3xl lg:text-4xl">
-                "Most problems in cities are obvious to the people living with
-                them,
-                <br className="hidden sm:block" />
-                but{" "}
-                <span className="border-b-4 border-blue-600">
-                  invisible in aggregate
-                </span>
-                ."
-              </p>
-            </blockquote>
-          </div>
-        </section>
-
-        {/* Feature Grid - Documentary Style */}
-        <section className="mb-32">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <FeatureCard
-              number="01"
-              title="See the truth"
-              description="What people are experiencing, where, and when. No filters. No spin. Just reality."
-            />
-            <FeatureCard
-              number="02"
-              title="Local first"
-              description="Issues in your city, state, country, world. Start where you are, zoom out to anywhere."
-            />
-            <FeatureCard
-              number="03"
-              title="Real-time"
-              description="See what's happening before institutions or media catch up. Live truth from real people."
-            />
-          </div>
-        </section>
 
         {/* Footer */}
         <footer className="border-t-2 border-black pt-12 pb-8">
@@ -287,7 +282,7 @@ function FeatureCard({
 }) {
   return (
     <div className="group relative bg-white border-2 border-black p-8 transition-all hover:-translate-y-1 hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
-      <div className="absolute -top-4 -left-4 bg-blue-600 px-3 py-1">
+      <div className="absolute -top-4 -left-4 bg-blue-500 px-3 py-1">
         <span className="font-mono text-sm font-bold text-white">{number}</span>
       </div>
       <h3 className="mb-3 font-display text-2xl font-bold text-black">
