@@ -29,7 +29,7 @@ export default function WaitlistPage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-neutral-50">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#f5f3ef]">
       {/* Map-inspired dot pattern background */}
       <div className="fixed inset-0 -z-10 map-dots opacity-[0.08]" />
 
